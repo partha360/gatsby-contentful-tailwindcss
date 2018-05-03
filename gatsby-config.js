@@ -1,0 +1,18 @@
+const contentfulConfig = require('./.contentful')
+
+module.exports = {
+  siteMetadata: {
+    title: 'Gatsby Contentful TailwindCSS Starter',
+  },
+  plugins: [
+    'gatsby-transformer-remark',
+    'gatsby-plugin-react-helmet',
+    {
+      resolve: 'gatsby-source-contentful',
+      options:
+        process.env.NODE_ENV === 'development'
+          ? contentfulConfig.development
+          : contentfulConfig.production,
+    },
+  ],
+}
