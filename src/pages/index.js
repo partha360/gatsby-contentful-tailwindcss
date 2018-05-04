@@ -1,89 +1,35 @@
 import React from 'react'
-import PropTypes from 'prop-types'
-import Helmet from 'react-helmet'
+import { getUserLangKey } from 'ptz-i18n'
+import { withPrefix, navigateTo } from 'gatsby-link'
+import languages from '../data/languages'
 
-import Header from '../components/header'
-require('../layouts/index.css')
-// import '../layouts/index.css'
+class RedirectIndex extends React.PureComponent {
+  constructor(props) {
+    super(props)
 
-class Layout extends React.Component {
+    // Skip build, Browsers only
+    if (typeof window !== 'undefined') {
+      const { langs, defaultLangKey } = languages
+      const langKey = getUserLangKey(langs, defaultLangKey)
+      const homeUrl = withPrefix(`/${languages.langKey[langKey]}/`)
+      navigateTo(homeUrl)
+    }
+  }
+
   render() {
-    const content = this.props.data.allContentfulLayout.edges
-    return (
-      <div className="container mx-auto my-4">
-        <h1 className="text-purple-dark">Home</h1>
-        <div className="flex flex-wrap items-stretch justify-around">
-          {content.map(({ node }) => {
-            return node.contentModules.map(({ course }) => {
-              return (
-                <div
-                  className="font-sans max-w-sm rounded overflow-hidden shadow-lg my-4"
-                  key={course.id}
-                >
-                  <div className="px-6 py-4">
-                    <img
-                      className="w-full"
-                      src={course.image.resolutions.src}
-                      alt={course.image.title}
-                    />
-                    <h2 className="font-bold text-xl mb-2">
-                      {course.title} ({course.node_locale})
-                    </h2>
-                    <div
-                      className="text-grey-dark leading-normal tracking-normal text-base"
-                      dangerouslySetInnerHTML={{
-                        __html: course.description.childMarkdownRemark.html,
-                      }}
-                    />
-                  </div>
-                </div>
-              )
-            })
-          })}
-        </div>
-      </div>
-    )
+    return <div />
   }
 }
 
-Layout.propTypes = {
-  children: PropTypes.func,
-}
+export default RedirectIndex
 
-export default Layout
-
-export const query = graphql`
-  query HomeContentQuery {
-    allContentfulLayout {
-      edges {
-        node {
-          slug
-          title
-          node_locale
-          contentModules {
-            course {
-              id
-              title
-              shortDescription
-              node_locale
-              image {
-                id
-                title
-                resolutions {
-                  src
-                  width
-                  height
-                }
-              }
-              description {
-                description
-                childMarkdownRemark {
-                  excerpt
-                  html
-                }
-              }
-            }
-          }
+export const pageQuery = graphql`
+  query IndexQuery {
+    site {
+      siteMetadata {
+        languages {
+          defaultLangKey
+          langs
         }
       }
     }
