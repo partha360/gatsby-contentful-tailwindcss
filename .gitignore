@@ -6,5 +6,3 @@ yarn-error.log
 # Build directory
 /public
 .DS_Store
-contentful.config.json
-.contentful.json
