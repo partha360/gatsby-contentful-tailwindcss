@@ -17,8 +17,9 @@ const LangSelect = props => {
   const links = props.langs.map(lang => {
     let link = lang.link;
     const newLink = link.replace(lang.langKey, languages.langKey[lang.langKey]);
+    console.log(newLink);
     return (
-      <Link className="px-1" to={newLink} key={lang.langKey}>
+      <Link className="px-1" to={newLink} key={languages.langKey[lang.langKey]}>
         <Flag langKey={lang.langKey} />
       </Link>
     );
