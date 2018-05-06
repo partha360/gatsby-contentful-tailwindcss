@@ -9,6 +9,7 @@
  *
  * @import "tailwindcss/preflight";
  */
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
 /*! normalize.css v7.0.0 | MIT License | github.com/necolas/normalize.css */
 
@@ -2592,18 +2593,6 @@ button,
   content: "";
   display: table;
   clear: both;
-}
-
-.font-sans {
-  font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-.font-serif {
-  font-family: Constantia, Lucida Bright, Lucidabright, Lucida Serif, Lucida, DejaVu Serif, Bitstream Vera Serif, Liberation Serif, Georgia, serif;
-}
-
-.font-mono {
-  font-family: Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
 }
 
 .font-roboto {
@@ -6795,18 +6784,6 @@ button,
     clear: both;
   }
 
-  .sm\:font-sans {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  }
-
-  .sm\:font-serif {
-    font-family: Constantia, Lucida Bright, Lucidabright, Lucida Serif, Lucida, DejaVu Serif, Bitstream Vera Serif, Liberation Serif, Georgia, serif;
-  }
-
-  .sm\:font-mono {
-    font-family: Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
-  }
-
   .sm\:font-roboto {
     font-family: Roboto, Monaco, Consolas, Liberation Mono, Courier New, monospace;
   }
@@ -10766,18 +10743,6 @@ button,
     content: "";
     display: table;
     clear: both;
-  }
-
-  .md\:font-sans {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  }
-
-  .md\:font-serif {
-    font-family: Constantia, Lucida Bright, Lucidabright, Lucida Serif, Lucida, DejaVu Serif, Bitstream Vera Serif, Liberation Serif, Georgia, serif;
-  }
-
-  .md\:font-mono {
-    font-family: Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
   }
 
   .md\:font-roboto {
@@ -14741,18 +14706,6 @@ button,
     clear: both;
   }
 
-  .lg\:font-sans {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  }
-
-  .lg\:font-serif {
-    font-family: Constantia, Lucida Bright, Lucidabright, Lucida Serif, Lucida, DejaVu Serif, Bitstream Vera Serif, Liberation Serif, Georgia, serif;
-  }
-
-  .lg\:font-mono {
-    font-family: Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
-  }
-
   .lg\:font-roboto {
     font-family: Roboto, Monaco, Consolas, Liberation Mono, Courier New, monospace;
   }
@@ -18712,18 +18665,6 @@ button,
     content: "";
     display: table;
     clear: both;
-  }
-
-  .xl\:font-sans {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Droid Sans, Helvetica Neue, -apple-system, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  }
-
-  .xl\:font-serif {
-    font-family: Constantia, Lucida Bright, Lucidabright, Lucida Serif, Lucida, DejaVu Serif, Bitstream Vera Serif, Liberation Serif, Georgia, serif;
-  }
-
-  .xl\:font-mono {
-    font-family: Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
   }
 
   .xl\:font-roboto {

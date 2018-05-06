@@ -5,4 +5,4 @@ module.exports = {
     de: 'de-DE',
     'en-US': 'en-US',
   },
-}
+};

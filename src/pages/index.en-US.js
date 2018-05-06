@@ -13,7 +13,7 @@ class EnLayout extends React.Component {
             return node.contentModules.map(({ course }) => {
               return (
                 <div
-                  className="font-sans max-w-sm rounded overflow-hidden shadow-lg my-4"
+                  className="max-w-sm rounded overflow-hidden shadow-lg my-4"
                   key={course.id}
                 >
                   <Helmet title={course.title} />
