@@ -1,5 +1,5 @@
-const contentfulConfig = require('./.contentful')
-const languages = require('./src/data/languages')
+const contentfulConfig = require('./.contentful');
+const languages = require('./src/data/languages');
 
 module.exports = {
   siteMetadata: {
@@ -25,4 +25,4 @@ module.exports = {
           : contentfulConfig.production,
     },
   ],
-}
+};

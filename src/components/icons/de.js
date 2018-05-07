@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 export default class DEFlag extends React.Component {
   render() {
@@ -21,6 +21,6 @@ export default class DEFlag extends React.Component {
           fill="#FFCE00"
         />
       </svg>
-    )
+    );
   }
 }

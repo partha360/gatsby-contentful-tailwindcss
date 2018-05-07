@@ -1,10 +1,10 @@
-import React from 'react'
-import Helmet from 'react-helmet'
-import TemplateWrapper from '../components/layout'
+import React from 'react';
+import Helmet from 'react-helmet';
+import TemplateWrapper from '../components/layout';
 
 class EnLayout extends React.Component {
   render() {
-    const content = this.props.data.allContentfulLayout.edges
+    const content = this.props.data.allContentfulLayout.edges;
     return (
       <TemplateWrapper location={this.props.location}>
         <h1 className="text-purple-dark">Home</h1>
@@ -34,16 +34,16 @@ class EnLayout extends React.Component {
                     />
                   </div>
                 </div>
-              )
-            })
+              );
+            });
           })}
         </div>
       </TemplateWrapper>
-    )
+    );
   }
 }
 
-export default EnLayout
+export default EnLayout;
 
 export const enquery = graphql`
   query enContentQuery {
@@ -81,4 +81,4 @@ export const enquery = graphql`
       }
     }
   }
-`
+`;

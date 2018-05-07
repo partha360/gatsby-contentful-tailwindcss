@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 export default class extends React.Component {
   render() {
@@ -40,6 +40,6 @@ export default class extends React.Component {
           <use x="2470" />
         </g>
       </svg>
-    )
+    );
   }
 }

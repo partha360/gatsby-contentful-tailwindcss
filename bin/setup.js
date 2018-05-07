@@ -1,9 +1,9 @@
-const spaceImport = require('contentful-import')
-const exportFile = require('../contentful/export.json')
-const inquirer = require('inquirer')
-const chalk = require('chalk')
-const path = require('path')
-const { writeFileSync } = require('fs')
+const spaceImport = require('contentful-import');
+const exportFile = require('../contentful/export.json');
+const inquirer = require('inquirer');
+const chalk = require('chalk');
+const path = require('path');
+const { writeFileSync } = require('fs');
 
 console.log(`
   To set up this project you need to provide your Space ID
@@ -21,7 +21,7 @@ console.log(`
   The ${chalk.green('Content Preview API Token')}
     will be used to show not published data in your development environment.
   Ready? Let's do it! 🎉
-`)
+`);
 
 const questions = [
   {
@@ -43,13 +43,13 @@ const questions = [
     name: 'previewToken',
     message: 'Your Content Preview API access token',
   },
-]
+];
 
 inquirer
   .prompt(questions)
   .then(({ spaceId, managementToken, accessToken, previewToken }) => {
-    console.log('Writing config file...')
-    const configFilePath = path.resolve(__dirname, '..', '.contentful.json')
+    console.log('Writing config file...');
+    const configFilePath = path.resolve(__dirname, '..', '.contentful.json');
     writeFileSync(
       configFilePath,
       JSON.stringify(
@@ -67,10 +67,10 @@ inquirer
         null,
         2
       )
-    )
-    console.log(`Config file ${chalk.yellow(configFilePath)} written`)
+    );
+    console.log(`Config file ${chalk.yellow(configFilePath)} written`);
 
-    return { spaceId, managementToken }
+    return { spaceId, managementToken };
   })
   .then(({ spaceId, managementToken }) =>
     spaceImport({ spaceId, managementToken, content: exportFile })
@@ -80,6 +80,6 @@ inquirer
       `All set! You can now run ${chalk.yellow(
         'npm run dev'
       )} to see it in action.`
-    )
+    );
   })
-  .catch(error => console.error(error))
+  .catch(error => console.error(error));

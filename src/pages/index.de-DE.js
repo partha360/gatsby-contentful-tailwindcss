@@ -1,10 +1,10 @@
-import React from 'react'
-import Helmet from 'react-helmet'
-import TemplateWrapper from '../components/layout'
+import React from 'react';
+import Helmet from 'react-helmet';
+import TemplateWrapper from '../components/layout';
 
 class DeLayout extends React.Component {
   render() {
-    const content = this.props.data.allContentfulLayout.edges
+    const content = this.props.data.allContentfulLayout.edges;
     return (
       <TemplateWrapper location={this.props.location}>
         <div className="flex flex-wrap items-stretch justify-around">
@@ -33,16 +33,16 @@ class DeLayout extends React.Component {
                     />
                   </div>
                 </div>
-              )
-            })
+              );
+            });
           })}
         </div>
       </TemplateWrapper>
-    )
+    );
   }
 }
 
-export default DeLayout
+export default DeLayout;
 
 export const dequery = graphql`
   query deContentQuery {
@@ -80,4 +80,4 @@ export const dequery = graphql`
       }
     }
   }
-`
+`;

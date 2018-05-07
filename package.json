@@ -8,19 +8,19 @@
     "eslint-plugin-react": "^7.7.0",
     "gatsby": "2.0.0-alpha.27",
     "gatsby-link": "1.6.41",
+    "gatsby-plugin-i18n": "^0.4.2",
     "gatsby-plugin-react-helmet": "2.0.11",
     "gatsby-source-contentful": "^1.3.48",
     "gatsby-transformer-remark": "1.7.40",
-    "gatsby-plugin-i18n": "^0.4.2",
     "inquirer": "^5.2.0",
+    "intl": "^1.2.5",
     "lodash": "^4.17.10",
     "purgecss": "^0.21.0",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-helmet": "^5.2.0",
-    "slash": "^2.0.0",
-    "intl": "^1.2.5",
-    "react-intl": "^2.4.0"
+    "react-intl": "^2.4.0",
+    "slash": "^2.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^8.4.1",
