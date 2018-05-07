@@ -1,13 +1,14 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { getUserLangKey } from 'ptz-i18n';
+import { getUserLangKey, getCurrentLangKey } from 'ptz-i18n';
 import Link, { withPrefix } from 'gatsby-link';
 import languages from '../data/languages';
 import LangSelect from './lang-select';
 
 const Header = props => {
+  const url = props.location.pathname;
   const { langs, defaultLangKey } = languages;
-  const langKey = getUserLangKey(langs, defaultLangKey);
+  const langKey = getCurrentLangKey(langs, defaultLangKey, url);
   const homeUrl = withPrefix(`/${languages.langKey[langKey]}/`);
   return (
     <nav className="flex items-center justify-between flex-wrap bg-grey-dark p-2">
@@ -16,7 +17,7 @@ const Header = props => {
       </div>
       <div className="flex items-center justify-between flex-wrap">
         <Link
-          to="/"
+          to={homeUrl}
           className="bg-red no-underline mx-2
           hover:bg-black text-white font-bold py-2 px-4 border-b-4 border-black hover:border-grey rounded"
         >
