@@ -60,10 +60,10 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
         graphql(
           `
             {
-              allContentfulCourse(limit: 1000) {
+              allContentfulLayout {
                 edges {
                   node {
-                    id
+                    title
                     node_locale
                   }
                 }
@@ -74,6 +74,27 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           if (result.errors) {
             reject(result.errors);
           }
+          // Create Courses page
+          const coursesTemplate = path.resolve(`./src/templates/courses.js`);
+          // We want to create a detailed page for each
+          // category node. We'll just use the Contentful id for the slug.
+          _.each(result.data.allContentfulLayout.edges, edge => {
+            // We need a locale between locales.
+            // Gatsby uses Redux to manage its internal state.
+            // Plugins and sites can use functions like "createPage"
+            // to interact with Gatsby.
+            createPage({
+              // Each page is required to have a `path` as well
+              // as a template component. The `context` is
+              // optional but is often necessary so the template
+              // can query data specific to each page.
+              path: `/${edge.node.node_locale}/courses/`,
+              component: slash(coursesTemplate),
+              context: {
+                locale: edge.node.node_locale,
+              },
+            });
+          });
 
           resolve();
         });

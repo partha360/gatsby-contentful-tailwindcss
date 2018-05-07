@@ -11,6 +11,7 @@ import en from 'react-intl/locale-data/en';
 import 'intl/locale-data/jsonp/en';
 import de from 'react-intl/locale-data/de';
 import 'intl/locale-data/jsonp/de';
+import Header from './header';
 require('../styles/index.css');
 // add concatenated locale data
 addLocaleData([...en, ...de]);
@@ -30,7 +31,7 @@ const TemplateWrapper = props => {
 
   return (
     <IntlProvider locale={langKey} messages={i18nMessages}>
-      <div className="container font-roboto mx-auto my-4">
+      <div className="container font-roboto max-w-full">
         <Helmet
           title="Gatsby Contentful TailwindCSS starter"
           meta={[
@@ -44,7 +45,7 @@ const TemplateWrapper = props => {
             },
           ]}
         />
-        <LangSelect langs={langsMenu} />
+        <Header langs={langsMenu} location={props.location} />
         <div
           style={{
             margin: `0 auto`,
@@ -57,26 +58,6 @@ const TemplateWrapper = props => {
         >
           {props.children}
           <hr style={{ marginTop: 20 }} />
-          <p>
-            The src for this website is at
-            {` `}
-            <a
-              target="_new"
-              href="https://github.com/partha360/gatsby-contentful-tailwindcss"
-            >
-              GitHub Source
-            </a>
-          </p>
-          <p>
-            The Contentful site that is providing the data for this site is at
-            {` `}
-            <a
-              target="_new"
-              href="https://discovery.contentful.com/entries/by-content-type?delivery_access_token=&preview=true&preview_access_token=2cc07c4e30a4f8c08be0e2fa107113519e70a411c906f141b095f03709a454d1&space_id=vp7tbc13ag5p"
-            >
-              Contentful discovery site
-            </a>
-          </p>
         </div>
       </div>
     </IntlProvider>
