@@ -2,7 +2,16 @@
 
 Gatsby-contentful-tailwindcss starter.
 
-For an overview of the project structure please refer to the [Gatsby documentation - Building with Components](https://www.gatsbyjs.org/docs/building-with-components/).
+> This project is inspired by https://github.com/mccrodp/gatsby-starter-contentful-i18n
+
+## Tools Used
+
+- Gatsby v2 alpha 27
+- react-intl & gatsby-plugin-i18n for localisation
+- gatsby-source-contentful for contenful integration
+- react v16.3.2
+- tailwindcss for styling & postcss for building css
+- prettier for auto code formatting
 
 ## Install
 
@@ -41,4 +50,3 @@ yarn setup
 ```sh
 yarn build
 ```
-
