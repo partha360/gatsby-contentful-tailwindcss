@@ -6,28 +6,39 @@ For an overview of the project structure please refer to the [Gatsby documentati
 
 ## Install
 
-Make sure that you have the Gatsby CLI program installed:
+Make sure that you have `yarn` installed globally:
+
+[https://yarnpkg.com/lang/en/docs/install](https://yarnpkg.com/lang/en/docs/install)
+
+Install `Gatsby CLI` globally using yarn:
 
 ```sh
-npm install --global gatsby-cli
+yarn global add gatsby-cli
 ```
 
-And run from your CLI in the cloned / forked directory:
+And from your CLI inside the cloned / forked directory run:
 
 ```sh
-npm install
+yarn
 ```
 
-Then you can run it by:
+## Development
 
 ```sh
-npm run develop
+yarn develop
 ```
 
-## Setup Contentful
+## Contentful Setup
 
-Make sure to have contenful project created already
+Make sure to have contenful project/space created already
 
 ```sh
-npm run setup
+yarn setup
 ```
+
+## Production Build
+
+```sh
+yarn build
+```
+
