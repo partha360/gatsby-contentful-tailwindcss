@@ -6,20 +6,22 @@ import languages from '../data/languages';
 import DE from './icons/de';
 import US from './icons/us';
 
-function Flag(props) {
-  if (props.langKey == 'de') {
+function flag(lang) {
+  if (lang === 'de') {
     return <DE />;
   }
   return <US />;
 }
 
 const LangSelect = props => {
-  const links = props.langs.map(lang => {
-    let link = lang.link;
-    const newLink = link.replace(lang.langKey, languages.langKey[lang.langKey]);
+  const links = props.langSet.map(lang => {
+    const newLink = lang.link.replace(
+      lang.langKey,
+      languages.langKey[lang.langKey]
+    );
     return (
       <Link className="px-1" to={newLink} key={languages.langKey[lang.langKey]}>
-        <Flag langKey={lang.langKey} />
+        {flag(lang.langKey)}
       </Link>
     );
   });
@@ -33,7 +35,7 @@ const LangSelect = props => {
 };
 
 LangSelect.propTypes = {
-  langs: PropTypes.array,
+  langSet: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default LangSelect;

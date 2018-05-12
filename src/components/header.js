@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { getUserLangKey, getCurrentLangKey } from 'ptz-i18n';
+import { getCurrentLangKey } from 'ptz-i18n';
 import Link, { withPrefix } from 'gatsby-link';
 import languages from '../data/languages';
 import LangSelect from './lang-select';
@@ -13,7 +13,7 @@ const Header = props => {
   return (
     <nav className="flex items-center justify-between flex-wrap bg-grey-dark p-2">
       <div>
-        <LangSelect langs={props.langs} />
+        <LangSelect langSet={props.langsMenu} />
       </div>
       <div className="flex items-center justify-between flex-wrap">
         <Link
@@ -24,7 +24,7 @@ const Header = props => {
           Home
         </Link>
         <Link
-          to={homeUrl + 'courses'}
+          to={`${homeUrl}courses`}
           className="bg-red no-underline
           hover:bg-black text-white font-bold py-2 px-4 border-b-4 border-black hover:border-grey rounded"
         >
@@ -38,6 +38,7 @@ const Header = props => {
           <img
             src="https://image.flaticon.com/icons/svg/25/25231.svg"
             width="50"
+            alt="Source in Github"
           />
         </a>
         <a
@@ -47,6 +48,7 @@ const Header = props => {
           <img
             src="https://d21buns5ku92am.cloudfront.net/41748/images/265846-Mark_Circular_darkBg_800x800-dd92d6-large-1511779631.png"
             width="50"
+            alt="Contentful model"
           />
         </a>
       </div>
@@ -55,7 +57,8 @@ const Header = props => {
 };
 
 Header.propTypes = {
-  langs: PropTypes.array,
+  langsMenu: PropTypes.arrayOf(PropTypes.object).isRequired,
+  location: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
 export default Header;

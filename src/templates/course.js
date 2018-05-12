@@ -1,10 +1,9 @@
 import React from 'react';
-import Link from 'gatsby-link';
+import Helmet from 'react-helmet';
 import * as PropTypes from 'prop-types';
 import TemplateWrapper from '../components/layout';
-import Helmet from 'react-helmet';
 
-class CourseTemplate extends React.Component {
+class CourseTemplate extends React.PureComponent {
   render() {
     const course = this.props.data.contentfulCourse;
     return (
@@ -29,7 +28,8 @@ class CourseTemplate extends React.Component {
 }
 
 const propTypes = {
-  data: PropTypes.object.isRequired,
+  data: PropTypes.objectOf(PropTypes.any).isRequired,
+  location: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
 CourseTemplate.propTypes = propTypes;

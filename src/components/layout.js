@@ -1,17 +1,21 @@
 import React from 'react';
-import LangSelect from '../components/lang-select';
 import Helmet from 'react-helmet';
-import { getCurrentLangKey, getLangs, getUrlForLang } from 'ptz-i18n';
-import { IntlProvider, addLocaleData } from 'react-intl';
+import * as PropTypes from 'prop-types';
 import 'intl';
-import languages from '../data/languages';
-
 import en from 'react-intl/locale-data/en';
 import 'intl/locale-data/jsonp/en';
 import de from 'react-intl/locale-data/de';
 import 'intl/locale-data/jsonp/de';
+
+import { getCurrentLangKey, getLangs, getUrlForLang } from 'ptz-i18n';
+import { IntlProvider, addLocaleData } from 'react-intl';
+
+import languages from '../data/languages';
+
 import Header from './header';
+
 require('../styles/index.css');
+
 // add concatenated locale data
 addLocaleData([...en, ...de]);
 
@@ -20,7 +24,7 @@ const TemplateWrapper = props => {
   const { langs, defaultLangKey } = languages;
   const langKey = getCurrentLangKey(langs, defaultLangKey, url);
   const homeLink = `/${languages.langKey[langKey]}/`;
-  let langUrl = getUrlForLang(homeLink, url);
+  const langUrl = getUrlForLang(homeLink, url);
   const langsMenu = getLangs(langs, langKey, langUrl);
 
   // get the appropriate message file based on langKey
@@ -44,7 +48,7 @@ const TemplateWrapper = props => {
             },
           ]}
         />
-        <Header langs={langsMenu} location={props.location} />
+        <Header langsMenu={langsMenu} location={props.location} />
         <div
           style={{
             margin: `0 auto`,
@@ -61,6 +65,11 @@ const TemplateWrapper = props => {
       </div>
     </IntlProvider>
   );
+};
+
+TemplateWrapper.propTypes = {
+  location: PropTypes.objectOf(PropTypes.string).isRequired,
+  children: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default TemplateWrapper;
