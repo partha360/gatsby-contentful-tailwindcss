@@ -23,7 +23,7 @@ class DeLayout extends React.Component {
                 className="font-sans max-w-sm rounded overflow-hidden shadow-lg my-4"
                 key={course.id}
               >
-                <Helmet title={course.title} />
+                <Helmet title={this.props.Store.title} />
                 <div className="px-6 py-4">
                   <img
                     className="w-full"
