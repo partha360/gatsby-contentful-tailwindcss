@@ -1,7 +1,11 @@
-/**
- * Implement Gatsby's Browser APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/browser-apis/
- */
+import React from 'react';
+import { Router } from 'react-router-dom';
+import { Provider } from 'mobx-react';
+import appStore from './src/state/Store';
 
-// You can delete this file if you're not using it
+// eslint-disable-next-line react/prop-types
+exports.replaceRouterComponent = ({ history }) => ({ children }) => (
+  <Provider Store={appStore}>
+    <Router history={history}>{children}</Router>
+  </Provider>
+);
