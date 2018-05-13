@@ -1,7 +1,7 @@
 import React from 'react';
 import Helmet from 'react-helmet';
 import Link from 'gatsby-link';
-import { observer, inject } from 'mobx-react';
+import { observer, inject, propTypes } from 'mobx-react';
 import * as PropTypes from 'prop-types';
 import TemplateWrapper from '../components/layout';
 
@@ -63,13 +63,13 @@ class CoursesTemplate extends React.Component {
   }
 }
 
-const propTypes = {
+const propType = {
   data: PropTypes.objectOf(PropTypes.any).isRequired,
   location: PropTypes.objectOf(PropTypes.string).isRequired,
-  Store: PropTypes.objectOf(PropTypes.string).isRequired,
+  Store: propTypes.observableObject.isRequired,
 };
 
-CoursesTemplate.propTypes = propTypes;
+CoursesTemplate.propTypes = propType;
 
 export default CoursesTemplate;
 

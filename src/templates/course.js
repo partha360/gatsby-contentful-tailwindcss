@@ -1,6 +1,6 @@
 import React from 'react';
 import Helmet from 'react-helmet';
-import { observer, inject } from 'mobx-react';
+import { observer, inject, propTypes } from 'mobx-react';
 import * as PropTypes from 'prop-types';
 import TemplateWrapper from '../components/layout';
 
@@ -36,13 +36,13 @@ class CourseTemplate extends React.Component {
   }
 }
 
-const propTypes = {
+const propType = {
   data: PropTypes.objectOf(PropTypes.any).isRequired,
   location: PropTypes.objectOf(PropTypes.string).isRequired,
-  Store: PropTypes.objectOf(PropTypes.string).isRequired,
+  Store: propTypes.observableObject.isRequired,
 };
 
-CourseTemplate.propTypes = propTypes;
+CourseTemplate.propTypes = propType;
 
 export default CourseTemplate;
 

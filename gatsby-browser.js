@@ -1,6 +1,6 @@
 import React from 'react';
 import { Router } from 'react-router-dom';
-import { Provider } from 'mobx-react';
+import { Provider, PropTypes } from 'mobx-react';
 
 import appStore from './src/state/Store';
 
@@ -10,6 +10,10 @@ exports.replaceRouterComponent = ({ history }) => {
       <Router history={history}>{children}</Router>
     </Provider>
   );
+
+  ConnectedRouterWrapper.propTypes = {
+    children: PropTypes.observableObject.isRequired,
+  };
 
   return ConnectedRouterWrapper;
 };
