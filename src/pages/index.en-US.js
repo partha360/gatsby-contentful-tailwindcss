@@ -1,9 +1,17 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import { observer, inject } from 'mobx-react';
 import * as PropTypes from 'prop-types';
 import TemplateWrapper from '../components/layout';
 
-class EnLayout extends React.PureComponent {
+@inject('Store')
+@observer
+class EnLayout extends React.Component {
+  constructor(props) {
+    super(props);
+    this.props.Store.setTitle('Gatsby Contentful TailwindCSS Mobx Starter');
+  }
+
   render() {
     const content = this.props.data.allContentfulLayout.edges;
     return (
@@ -45,6 +53,7 @@ class EnLayout extends React.PureComponent {
 EnLayout.propTypes = {
   data: PropTypes.objectOf(PropTypes.any).isRequired,
   location: PropTypes.objectOf(PropTypes.string).isRequired,
+  Store: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
 export default EnLayout;

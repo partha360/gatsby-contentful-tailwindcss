@@ -1,6 +1,6 @@
 {
-  "name": "gatsby-starter-contentful-tailwindcss",
-  "description": "Gatsby Contentful TailwindCSS starter",
+  "name": "gatsby-starter-contentful-tailwindcss-mobx",
+  "description": "Gatsby Contentful TailwindCSS Mobx starter",
   "version": "1.0.0",
   "author": "Parthasarathy S",
   "dependencies": {
@@ -51,15 +51,13 @@
     "request": "^2.85.0",
     "tailwindcss": "^0.5.2"
   },
-  "keywords": [
-    "gatsby",
-    "contentful",
-    "tailwindcss"
-  ],
+  "keywords": ["gatsby", "contentful", "tailwindcss"],
   "license": "MIT",
   "scripts": {
-    "tailwind:build": "postcss src/styles/tailwind.index.css -o src/styles/index.css",
-    "tailwind:watch": "postcss src/styles/tailwind.index.css -o src/styles/index.css -w",
+    "tailwind:build":
+      "postcss src/styles/tailwind.index.css -o src/styles/index.css",
+    "tailwind:watch":
+      "postcss src/styles/tailwind.index.css -o src/styles/index.css -w",
     "build": "npm run tailwind:build && gatsby build",
     "develop": "gatsby develop & npm run tailwind:watch",
     "format": "prettier --write 'src/**/*.js' 'src/**/*.md' 'bin/*.js'",

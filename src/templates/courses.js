@@ -1,13 +1,23 @@
 import React from 'react';
+import Helmet from 'react-helmet';
 import Link from 'gatsby-link';
+import { observer, inject } from 'mobx-react';
 import * as PropTypes from 'prop-types';
 import TemplateWrapper from '../components/layout';
 
-class CoursesTemplate extends React.PureComponent {
+@inject('Store')
+@observer
+class CoursesTemplate extends React.Component {
+  constructor(props) {
+    super(props);
+    this.props.Store.setTitle('Courses');
+  }
+
   render() {
     const courses = this.props.data.allContentfulCourse.edges;
     return (
       <TemplateWrapper location={this.props.location}>
+        <Helmet title={this.props.Store.title} />
         {courses.map(course => (
           <div key={course.node.id} className="max-w-md w-full lg:flex my-4">
             <div
@@ -56,6 +66,7 @@ class CoursesTemplate extends React.PureComponent {
 const propTypes = {
   data: PropTypes.objectOf(PropTypes.any).isRequired,
   location: PropTypes.objectOf(PropTypes.string).isRequired,
+  Store: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
 CoursesTemplate.propTypes = propTypes;

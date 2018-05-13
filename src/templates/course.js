@@ -1,14 +1,23 @@
 import React from 'react';
 import Helmet from 'react-helmet';
+import { observer, inject } from 'mobx-react';
 import * as PropTypes from 'prop-types';
 import TemplateWrapper from '../components/layout';
 
-class CourseTemplate extends React.PureComponent {
+@inject('Store')
+@observer
+class CourseTemplate extends React.Component {
+  constructor(props) {
+    super(props);
+    this.props.Store.setTitle(this.props.data.contentfulCourse.title);
+  }
+
   render() {
     const course = this.props.data.contentfulCourse;
+    this.props.Store.setTitle(this.props.data.contentfulCourse.title);
     return (
       <TemplateWrapper location={this.props.location}>
-        <Helmet title={course.title} />
+        <Helmet title={this.props.Store.title} />
         <img
           className="w-full"
           src={course.image.resolutions.src}
@@ -30,6 +39,7 @@ class CourseTemplate extends React.PureComponent {
 const propTypes = {
   data: PropTypes.objectOf(PropTypes.any).isRequired,
   location: PropTypes.objectOf(PropTypes.string).isRequired,
+  Store: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
 CourseTemplate.propTypes = propTypes;

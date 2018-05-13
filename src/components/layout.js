@@ -7,8 +7,6 @@ import 'intl/locale-data/jsonp/en';
 import de from 'react-intl/locale-data/de';
 import 'intl/locale-data/jsonp/de';
 
-import { observer, inject } from 'mobx-react';
-
 import { getCurrentLangKey, getLangs, getUrlForLang } from 'ptz-i18n';
 import { IntlProvider, addLocaleData } from 'react-intl';
 import languages from '../data/languages';
@@ -19,14 +17,7 @@ require('../styles/index.css');
 // add concatenated locale data
 addLocaleData([...en, ...de]);
 
-/* eslint-disable react/prop-types */
-@inject('Store')
-@observer
-class TemplateWrapper extends React.Component {
-  componentWillMount() {
-    this.props.Store.setTitle('Gatsby Contentful TailwindCSS mobx starter');
-  }
-
+class TemplateWrapper extends React.PureComponent {
   render() {
     const url = this.props.location.pathname;
     const { langs, defaultLangKey } = languages;
@@ -43,7 +34,6 @@ class TemplateWrapper extends React.Component {
       <IntlProvider locale={langKey} messages={i18nMessages}>
         <div className="container font-roboto max-w-full">
           <Helmet
-            title={this.props.Store.getTitle}
             meta={[
               {
                 name: 'description',
@@ -55,7 +45,6 @@ class TemplateWrapper extends React.Component {
               },
             ]}
           />
-          <h1>{this.props.Store.getTitle}</h1>
           <Header langsMenu={langsMenu} location={this.props.location} />
           <div
             style={{
@@ -75,11 +64,10 @@ class TemplateWrapper extends React.Component {
     );
   }
 }
-/* eslint-disable react/prop-types */
 
 TemplateWrapper.propTypes = {
   location: PropTypes.objectOf(PropTypes.string).isRequired,
-  children: PropTypes.arrayOf(PropTypes.object).isRequired,
+  children: PropTypes.objectOf(PropTypes.any).isRequired,
 };
 
 export default TemplateWrapper;
