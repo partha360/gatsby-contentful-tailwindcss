@@ -8,3 +8,7 @@ yarn-error.log
 .DS_Store
 .contentful.json
 contentful.config.json
+
+# Test Coverage
+
+coverage

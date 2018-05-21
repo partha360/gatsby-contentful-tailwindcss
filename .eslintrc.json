@@ -26,5 +26,14 @@
     "react/no-danger": "off",
     "import/no-dynamic-require": "off",
     "global-require": "off"
-  }
+  },
+  "overrides": [
+    {
+      "files": ["*.spec.js", "*.test.js"],
+      "rules": {
+        "no-unused-expressions": "off",
+        "no-undef": "off"
+      }
+    }
+  ]
 }
