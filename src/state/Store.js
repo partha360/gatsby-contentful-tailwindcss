@@ -1,15 +1,24 @@
-import { observable, computed } from 'mobx';
+import { persist } from 'mobx-persist';
+import { observable, computed, action } from 'mobx';
 
 class Store {
-  @observable title = '';
+  @persist
+  @observable
+  title;
+
+  constructor(title) {
+    this.title = title;
+  }
 
   @computed
   get getTitle() {
-    return this.title;
+    return this.title.toUpperCase();
   }
 
+  @action
   setTitle(title) {
     this.title = title;
+    return this.title;
   }
 }
 

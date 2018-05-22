@@ -23,7 +23,7 @@ class CourseTemplate extends React.Component {
           src={course.image.resolutions.src}
           alt={course.image.title}
         />
-        <h1>{course.title}</h1>
+        <h1>{this.props.Store.getTitle}</h1>
         <h2>{course.shortDescription}</h2>
         <div
           className="text-grey-dark leading-normal tracking-normal text-base"
