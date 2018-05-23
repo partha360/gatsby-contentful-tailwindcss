@@ -11,7 +11,7 @@ class Store {
   }
 
   @computed
-  get getTitle() {
+  get getUpperCaseTitle() {
     return this.title.toUpperCase();
   }
 
